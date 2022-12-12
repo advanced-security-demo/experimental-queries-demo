@@ -1,0 +1,27 @@
+# Use with caution ⚠️ experimental queries are not assured for performance or false positives
+
+# Use in a CodeQL workflow
+# e.g. use from where it is or copy to `./.github/codeql/go-experimental-security.qls`
+# then alter the workflow to look like:
+#
+#    # Initializes the CodeQL tools for scanning.
+#    - name: Initialize CodeQL
+#      uses: github/codeql-action/init@v2
+#      with:
+#        languages: [go]
+#        queries: security-and-quality,./.github/codeql/go-experimental-security.qls
+
+- description: "Go experimental security queries"
+- qlpack: codeql/go-queries
+
+- queries: '.'
+  from: codeql/go-queries
+
+- include:
+    kind:
+    - problem
+    - path-problem
+    - alert
+    - path-alert
+    query path:
+      - /experimental\/.*/
