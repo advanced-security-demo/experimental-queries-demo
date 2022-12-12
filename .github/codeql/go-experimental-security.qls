@@ -12,11 +12,9 @@
 #        queries: security-and-quality,./.github/codeql/go-experimental-security.qls
 
 - description: "Go experimental security queries"
-- qlpack: codeql/go-queries
 
 - queries: '.'
   from: codeql/go-queries
-
 - include:
     kind:
     - problem
